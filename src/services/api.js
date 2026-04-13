@@ -24,12 +24,14 @@ export function setStoredToken(token) {
 const DEFAULT_PRODUCTION_API_ORIGIN = 'https://lead-manager-backend-zeta.vercel.app';
 
 /**
- * Local dev: VITE_USE_API_PROXY=1 → same-origin `/api` (Vite proxies to backend).
- * Override anytime with VITE_API_URL (any environment).
+ * Local dev only: VITE_USE_API_PROXY=1 → same-origin `/api` (Vite dev server proxies to backend).
+ * In production builds, proxy is ignored so API always uses VITE_API_URL or DEFAULT_PRODUCTION_API_ORIGIN
+ * (Vercel has no dev proxy; `baseURL ''` would wrongly POST to the frontend domain → 405 / HTML).
  */
 const useProxy =
-  import.meta.env.VITE_USE_API_PROXY === '1' ||
-  import.meta.env.VITE_USE_API_PROXY === 'true';
+  import.meta.env.DEV &&
+  (import.meta.env.VITE_USE_API_PROXY === '1' ||
+    import.meta.env.VITE_USE_API_PROXY === 'true');
 const raw = (import.meta.env.VITE_API_URL || '').trim();
 
 let baseURL = import.meta.env.DEV ? 'http://localhost:5000' : DEFAULT_PRODUCTION_API_ORIGIN;
