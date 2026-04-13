@@ -977,6 +977,12 @@ body.lms-app-body {
   border-radius: 1rem !important;
 }
 
+.login-brand-mark {
+  display: inline-block;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
 .login-shell .form-control,
 .login-shell .form-select {
   background-color: var(--lms-bg-elevated);
@@ -1160,6 +1166,18 @@ body.lms-app-body {
   background: rgba(59, 130, 246, 0.2);
   border-color: rgba(59, 130, 246, 0.35);
   color: #93c5fd;
+}
+
+.lms-sidebar__logo--mark {
+  padding: 0;
+  overflow: hidden;
+}
+
+.lms-sidebar__logo--mark img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .lms-sidebar__brand-text {

@@ -57,6 +57,16 @@ export default function LoginPage() {
     <div className="login-shell px-3">
       <div className="card login-card shadow">
         <div className="card-body p-4">
+          <div className="text-center mb-3">
+            <img
+              src="/logo.png"
+              alt=""
+              width={56}
+              height={56}
+              className="login-brand-mark"
+              decoding="async"
+            />
+          </div>
           <h1 className="h4 mb-1 text-center">Lead Management System</h1>
           <p className="text-muted small text-center mb-4">Sign in with your email and password.</p>
           <form onSubmit={submit} noValidate>

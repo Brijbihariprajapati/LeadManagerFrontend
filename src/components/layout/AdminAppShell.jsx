@@ -40,7 +40,9 @@ export default function AdminAppShell() {
         } ${mobileOpen ? 'is-mobile-open' : ''}`}
       >
         <div className="lms-sidebar__brand">
-          <div className="lms-sidebar__logo lms-sidebar__logo--crm-admin">A</div>
+          <div className="lms-sidebar__logo lms-sidebar__logo--crm-admin lms-sidebar__logo--mark">
+            <img src="/logo.png" alt="" width={28} height={28} decoding="async" />
+          </div>
           <div className="lms-sidebar__brand-text">
             <span className="lms-sidebar__title">Admin</span>
             <span className="lms-sidebar__subtitle">Control center</span>

@@ -51,7 +51,9 @@ export default function UserAppShell() {
         } ${mobileOpen ? 'is-mobile-open' : ''}`}
       >
         <div className="lms-sidebar__brand">
-          <div className="lms-sidebar__logo lms-sidebar__logo--crm-user">U</div>
+          <div className="lms-sidebar__logo lms-sidebar__logo--crm-user lms-sidebar__logo--mark">
+            <img src="/logo.png" alt="" width={28} height={28} decoding="async" />
+          </div>
           <div className="lms-sidebar__brand-text">
             <span className="lms-sidebar__title">Workspace</span>
             <span className="lms-sidebar__subtitle">Lead operations</span>
