@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lead Management System</title>
+    <meta name="description" content="Manage leads and team users" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var p = typeof location !== 'undefined' ? location.pathname || '' : '';
+          var k;
+          if (p === '/admin' || p.indexOf('/admin/') === 0) {
+            k = 'lms-theme-admin';
+          } else if (
+            p === '/leads' ||
+            p.indexOf('/leads/') === 0 ||
+            p === '/public' ||
+            p.indexOf('/public/') === 0
+          ) {
+            var last = typeof localStorage !== 'undefined' ? localStorage.getItem('lms-theme-last-scope') : null;
+            k = last === 'admin' ? 'lms-theme-admin' : 'lms-theme-user';
+          } else {
+            k = 'lms-theme-user';
+          }
+          var t = typeof localStorage !== 'undefined' ? localStorage.getItem(k) : null;
+          var mode = t === 'light' ? 'light' : 'dark';
+          var html = document.documentElement;
+          html.setAttribute('data-lms-theme', mode);
+          html.setAttribute('data-bs-theme', mode === 'light' ? 'light' : 'dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="lms-app-body" style="font-family: Inter, system-ui, sans-serif">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
