@@ -31,7 +31,7 @@ const useProxy =
 const raw = (import.meta.env.VITE_API_URL || '').trim();
 
 /** Proxy: same-origin `/api` (Vite dev only). Production on Vercel: set VITE_API_URL, do not set VITE_USE_API_PROXY. */
-let baseURL = 'http://localhost:5000';
+let baseURL = 'https://lead-manager-backend-zeta.vercel.app';
 if (useProxy) {
   baseURL = '';
 } else if (raw) {
