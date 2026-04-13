@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/components/Providers';
 import AdminAppShell from './AdminAppShell';
 import UserAppShell from './UserAppShell';
@@ -14,6 +15,10 @@ export default function LeadsRoleShell() {
         </div>
       </div>
     );
+  }
+
+  if (user === null) {
+    return <Navigate to="/login" replace />;
   }
 
   if (user.role === 'admin') {

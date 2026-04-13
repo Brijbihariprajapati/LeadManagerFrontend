@@ -28,9 +28,10 @@ export function setStoredToken(token) {
 const useProxy =
   import.meta.env.VITE_USE_API_PROXY === '1' ||
   import.meta.env.VITE_USE_API_PROXY === 'true';
-const raw = import.meta.env.VITE_API_URL?.trim();
+const raw = (import.meta.env.VITE_API_URL || '').trim();
 
-let baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+/** Proxy: same-origin `/api` (Vite dev only). Production on Vercel: set VITE_API_URL, do not set VITE_USE_API_PROXY. */
+let baseURL = 'http://localhost:5000';
 if (useProxy) {
   baseURL = '';
 } else if (raw) {

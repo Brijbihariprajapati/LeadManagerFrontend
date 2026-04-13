@@ -37,12 +37,16 @@ function RequireAuth() {
 
 function RequireAdmin() {
   const { user } = useAuth();
+  if (user === undefined) return <AuthLoading />;
+  if (user === null) return <Navigate to="/login" replace />;
   if (user.role !== 'admin') return <Navigate to="/user" replace />;
   return <Outlet />;
 }
 
 function RequireUserRole() {
   const { user } = useAuth();
+  if (user === undefined) return <AuthLoading />;
+  if (user === null) return <Navigate to="/login" replace />;
   if (user.role !== 'user') return <Navigate to="/admin" replace />;
   return <Outlet />;
 }
