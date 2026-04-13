@@ -30,7 +30,7 @@ const useProxy =
   import.meta.env.VITE_USE_API_PROXY === 'true';
 const raw = import.meta.env.VITE_API_URL?.trim();
 
-let baseURL = 'http://localhost:5000';
+let baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 if (useProxy) {
   baseURL = '';
 } else if (raw) {
